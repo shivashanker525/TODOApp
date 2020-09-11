@@ -1,0 +1,42 @@
+
+<head>
+    <style>
+        body{
+            background-color: #638CB8;
+        }
+        h3{
+            text-align: center;
+        }
+        h4{
+            text-align: center;
+        }
+        a {
+            text-decoration: none;
+            background-color: #275ae4;
+            text-align: center;
+            margin-right: 250px;
+            margin-left: 640px;
+            width: 40%;
+            padding: 12px 20px;
+            box-sizing: border-box;
+        }
+        input{
+            text-align: center;
+            margin-left: 550px;
+            width: 20%;
+            padding: 12px 20px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <h3>DELETE TASK</h3>
+
+    <h4>Are you sure you want to delete "{{item}}"?</h4>
+    <a class="btn btn-sm btn-danger" href="{% url 'taskpage' %}">Cancel</a>
+    <br><br>
+    <form class= "form-control" method="POST" action="">
+        {% csrf_token %}
+        <input class ="btn btn-info" type="submit" value="Confirm">
+    </form>
+</body>

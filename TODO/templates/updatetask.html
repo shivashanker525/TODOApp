@@ -1,0 +1,19 @@
+{% load static %}
+<head>
+    <link rel="stylesheet" href="{% static 'css/tasklist.css' %}">
+</head>
+<style>
+    h3 {
+        text-align:center;        
+    }
+</style>
+<body>
+    <h3>UPDATE TASK</h3>
+    <div class = "center-column">
+        <form class ="form-control" method="POST" action="">
+            {% csrf_token %}
+            {{ form }}
+            <input class="btn btn-primary" type="submit" value="Update Task">
+        </form>
+    </div>
+</body>

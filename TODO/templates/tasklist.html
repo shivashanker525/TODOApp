@@ -1,0 +1,28 @@
+{% load static %}
+<head>
+    <link rel="stylesheet" href="{% static 'css/tasklist.css' %}">
+</head>
+<body>
+    <div class = "center-column">
+        <h1>TO DO APP</h1>
+
+        <form method="POST" action="">
+            {% csrf_token %}
+            {{ form.title }}
+            <input class="btn btn-primary" type="submit" value="Create Task">
+        </form>
+        <div class="todo-list">
+        {% for task in tasks %}
+            <div class="item-row">
+                <a class="btn btn-sm btn-info" href="{% url 'update_task' task.id %}">UPDATE</a>
+                <a class="btn btn-sm btn-danger" href="{% url 'delete_task' task.id %}">DELETE</a>
+                {% if task.complete == True %}
+                <strike>{{task}}</strike>
+                {% else %}
+                <span>{{task}}</span>
+                {% endif %}
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+</body>
